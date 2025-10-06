@@ -46,4 +46,5 @@ public class IndividualCustomer extends Customer {
 
 // Araştırma ödevi
 //OneToMany - Many-Many - ManyToOne - OneToOne nedir araştırınız?
-// City ve district sınıflarını yazınız
+
+// City ve district.Address sınıflarını yazınız
