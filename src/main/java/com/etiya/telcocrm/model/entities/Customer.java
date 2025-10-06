@@ -1,6 +1,7 @@
 package com.etiya.telcocrm.model.entities;
 
 
+import com.etiya.telcocrm.core.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "customers")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Customer {
+public class Customer extends BaseEntity {
 
 
     @Id
