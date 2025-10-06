@@ -42,3 +42,8 @@ public class IndividualCustomer extends Customer {
     private String gender;
 
 }
+
+
+// Araştırma ödevi
+//OneToMany - Many-Many - ManyToOne - OneToOne nedir araştırınız?
+// City ve district sınıflarını yazınız
