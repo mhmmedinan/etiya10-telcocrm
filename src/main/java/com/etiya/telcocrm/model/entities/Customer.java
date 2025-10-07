@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
 
 @Getter
@@ -31,11 +30,12 @@ public class Customer extends BaseEntity {
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
 
+
     @PrePersist
     public void generateCustomerNumber(){
         String prefix = "CUST-";
         String year = String.valueOf(java.time.Year.now().getValue());
-        String randomPart = String.format("%04",new java.util.Random().nextInt(10000));
+        String randomPart = String.format("%04d",new java.util.Random().nextInt(10000));
         this.customerNumber = prefix + year + "-" + randomPart;
     }
 }
