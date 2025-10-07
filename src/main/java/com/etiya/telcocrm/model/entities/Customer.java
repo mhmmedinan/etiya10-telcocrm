@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,6 +27,9 @@ public class Customer extends BaseEntity {
 
     @Column(name = "customer_number")
     private String customerNumber;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Address> addresses;
 
     @PrePersist
     public void generateCustomerNumber(){

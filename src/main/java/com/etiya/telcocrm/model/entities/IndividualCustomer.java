@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @PrimaryKeyJoinColumn(name = "customer_id")
 public class IndividualCustomer extends Customer {
 
-
     @Column(name = "firstName",nullable = false,length = 50)
     private String firstName;
 
@@ -46,5 +45,4 @@ public class IndividualCustomer extends Customer {
 
 // Araştırma ödevi
 //OneToMany - Many-Many - ManyToOne - OneToOne nedir araştırınız?
-
 // City ve district.Address sınıflarını yazınız
