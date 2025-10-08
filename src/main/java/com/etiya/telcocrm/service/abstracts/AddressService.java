@@ -14,4 +14,8 @@ public interface AddressService {
     List<Address> getAll();
 
     List<GetListAddressResponse> getList();
+
+    void delete(int id);
+
+    void softDelete(int id);
  }

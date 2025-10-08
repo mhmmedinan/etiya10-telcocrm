@@ -13,6 +13,7 @@ import com.etiya.telcocrm.service.responses.address.CreatedAddressResponse;
 import com.etiya.telcocrm.service.responses.address.GetListAddressResponse;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -67,6 +68,19 @@ public class AddressServiceImpl implements AddressService {
             response.setCustomerId(address.getCustomer().getId());
             return response;
         }).toList();
+    }
+
+    @Override
+    public void delete(int id) {
+        Address address = addressRepository.findById(id).orElseThrow(() -> new RuntimeException("Address Not Found"));
+        addressRepository.delete(address);
+    }
+
+    @Override
+    public void softDelete(int id) {
+        Address address = addressRepository.findById(id).orElseThrow(() -> new RuntimeException("Address Not Found"));
+        address.setDeletedDate(LocalDateTime.now());
+        addressRepository.save(address);
     }
 
     @Override

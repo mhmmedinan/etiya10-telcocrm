@@ -42,4 +42,17 @@ public class AddressController {
     @GetMapping(path = "getListResponses")
     @ResponseStatus(HttpStatus.OK)
     public List<GetListAddressResponse> getList(){ return addressService.getList();}
+
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable int id){
+        addressService.delete(id);
+    }
+
+    @DeleteMapping("{id}/soft")
+    @ResponseStatus(HttpStatus.OK)
+    public void softDelete(@PathVariable int id){
+        addressService.softDelete(id);
+    }
 }

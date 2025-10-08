@@ -2,10 +2,12 @@ package com.etiya.telcocrm.model.entities;
 
 import com.etiya.telcocrm.core.entities.BaseEntity;
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLRestriction;
 
 
 @Entity
 @Table(name = "addresses")
+@SQLRestriction("deleted_date IS NULL")
 public class Address extends BaseEntity {
 
     @Id
