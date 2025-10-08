@@ -10,6 +10,7 @@ import com.etiya.telcocrm.service.abstracts.AddressService;
 import com.etiya.telcocrm.service.abstracts.CityService;
 import com.etiya.telcocrm.service.requests.address.CreateAddressRequest;
 import com.etiya.telcocrm.service.responses.address.CreatedAddressResponse;
+import com.etiya.telcocrm.service.responses.address.GetListAddressResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,7 +53,24 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<Address> getList() {
+    public List<GetListAddressResponse> getList() {
+        return addressRepository.findAll().stream().map(address -> {
+            GetListAddressResponse response = new GetListAddressResponse();
+            response.setId(address.getId());
+            response.setStreet(address.getStreet());
+            response.setHouseNumber(address.getHouseNumber());
+            response.setDescription(address.getDescription());
+            response.setDefault(address.isDefault());
+            response.setDistrictId(address.getDistrict().getId());
+            response.setDistrictName(address.getDistrict().getName());
+            response.setCityName(address.getDistrict().getCity().getName());
+            response.setCustomerId(address.getCustomer().getId());
+            return response;
+        }).toList();
+    }
+
+    @Override
+    public List<Address> getAll() {
         return addressRepository.findAll();
     }
 }

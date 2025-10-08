@@ -6,13 +6,14 @@ import com.etiya.telcocrm.service.abstracts.AddressService;
 import com.etiya.telcocrm.service.abstracts.DistrictService;
 import com.etiya.telcocrm.service.requests.address.CreateAddressRequest;
 import com.etiya.telcocrm.service.responses.address.CreatedAddressResponse;
+import com.etiya.telcocrm.service.responses.address.GetListAddressResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/addresses")
+@RequestMapping("/api/addresses/")
 public class AddressController {
     private final AddressService addressService;
 
@@ -36,5 +37,9 @@ public class AddressController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Address> getList(){ return addressService.getList();}
+    public List<Address> getAll(){ return addressService.getAll();}
+
+    @GetMapping(path = "getListResponses")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListAddressResponse> getList(){ return addressService.getList();}
 }
