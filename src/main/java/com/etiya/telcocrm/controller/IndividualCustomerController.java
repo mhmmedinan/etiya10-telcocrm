@@ -15,7 +15,7 @@ public class IndividualCustomerController {
         this.individualCustomerService = individualCustomerService;
     }
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody IndividualCustomer individualCustomer){
           individualCustomerService.add(individualCustomer);

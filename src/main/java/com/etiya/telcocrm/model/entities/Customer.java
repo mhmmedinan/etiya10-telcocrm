@@ -3,16 +3,9 @@ package com.etiya.telcocrm.model.entities;
 
 import com.etiya.telcocrm.core.entities.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "customers")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -30,6 +23,29 @@ public class Customer extends BaseEntity {
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public Customer(int id, String customerNumber) {
+        this.id = id;
+        this.customerNumber = customerNumber;
+    }
+
+    public Customer() {
+    }
 
     @PrePersist
     public void generateCustomerNumber(){

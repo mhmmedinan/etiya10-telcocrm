@@ -2,14 +2,9 @@ package com.etiya.telcocrm.model.entities;
 
 import com.etiya.telcocrm.core.entities.BaseEntity;
 import jakarta.persistence.*;
-import lombok.*;
-
 import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "districts")
 public class District extends BaseEntity {
@@ -29,4 +24,27 @@ public class District extends BaseEntity {
     @OneToMany(mappedBy = "district")
     private List<Address> addresses;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public District(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public District() {
+    }
 }
