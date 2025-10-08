@@ -1,6 +1,7 @@
 package com.etiya.telcocrm.model.entities;
 
 import com.etiya.telcocrm.core.entities.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -38,6 +39,22 @@ public class District extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     public District(int id, String name) {

@@ -73,6 +73,22 @@ public class Address extends BaseEntity {
         isDefault = aDefault;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
+    }
+
     public Address(int id, String street, String houseNumber, String description, boolean isDefault) {
         this.id = id;
         this.street = street;

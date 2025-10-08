@@ -8,6 +8,8 @@ import com.etiya.telcocrm.service.abstracts.CityService;
 import com.etiya.telcocrm.service.abstracts.DistrictService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DistrictServiceImpl implements DistrictService {
 
@@ -20,5 +22,10 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public void add(District district) {
         districtRepository.save(district);
+    }
+
+    @Override
+    public List<District> getList() {
+        return districtRepository.findAll();
     }
 }

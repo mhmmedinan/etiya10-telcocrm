@@ -8,6 +8,8 @@ import com.etiya.telcocrm.service.abstracts.AddressService;
 import com.etiya.telcocrm.service.abstracts.CityService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AddressServiceImpl implements AddressService {
 
@@ -20,5 +22,10 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public void add(Address address) {
         addressRepository.save(address);
+    }
+
+    @Override
+    public List<Address> getList() {
+        return addressRepository.findAll();
     }
 }
