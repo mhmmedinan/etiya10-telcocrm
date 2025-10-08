@@ -1,7 +1,5 @@
 package com.etiya.telcocrm.service.requests.address;
 
-import jakarta.persistence.Column;
-
 public class CreateAddressRequest {
     private String street;
     private String houseNumber;
