@@ -2,7 +2,7 @@ package com.etiya.telcocrm.service.responses.address;
 
 public class CreatedAddressResponse {
     private int id;
-   /* private String street;
+    private String street;
     private String houseNumber;
     private String description;
     private boolean isDefault;
@@ -56,7 +56,7 @@ public class CreatedAddressResponse {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
-    }*/
+    }
 
     public int getId() {
         return id;
@@ -66,7 +66,7 @@ public class CreatedAddressResponse {
         this.id = id;
     }
 
-    /*public CreatedAddressResponse(int id, String street, String houseNumber, String description, boolean isDefault, int districtId, int customerId) {
+    public CreatedAddressResponse(int id, String street, String houseNumber, String description, boolean isDefault, int districtId, int customerId) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.description = description;
@@ -74,7 +74,7 @@ public class CreatedAddressResponse {
         this.districtId = districtId;
         this.customerId = customerId;
         this.id=id;
-    }*/
+    }
 
     public CreatedAddressResponse() {
     }
