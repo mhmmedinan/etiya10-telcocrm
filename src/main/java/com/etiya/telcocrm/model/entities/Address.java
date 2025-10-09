@@ -27,11 +27,11 @@ public class Address extends BaseEntity {
     @Column(name = "isDefault",nullable = false)
     private boolean isDefault;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="district_id")
     private District district;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="customer_id")
     private Customer customer;
 

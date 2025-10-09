@@ -22,7 +22,7 @@ public class District extends BaseEntity {
     @JoinColumn(name = "city_id")
     private City city;
 
-    @OneToMany(mappedBy = "district")
+    @OneToMany(mappedBy = "district",fetch = FetchType.LAZY)
     private List<Address> addresses;
 
     public int getId() {

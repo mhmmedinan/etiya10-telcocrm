@@ -10,4 +10,5 @@ public interface IndividualCustomerService {
     //void add(IndividualCustomer individualCustomer);
     CreatedIndividualCustomerResponse add(CreateIndividualCustomerRequest request);
     List<GetListIndividualCustomerResponse> getlist();
+    List<GetListIndividualCustomerResponse> findAllWithAddresses();
 }

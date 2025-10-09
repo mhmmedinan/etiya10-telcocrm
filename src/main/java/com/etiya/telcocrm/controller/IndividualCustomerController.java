@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/individual-customers")
+@RequestMapping("/api/individual-customers/")
 public class IndividualCustomerController {
 
     private final IndividualCustomerService individualCustomerService;
@@ -30,5 +30,11 @@ public class IndividualCustomerController {
     @ResponseStatus(HttpStatus.OK)
     public List<GetListIndividualCustomerResponse> getList(){
         return individualCustomerService.getlist();
+    }
+
+    @GetMapping("getListWithAddresses")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListIndividualCustomerResponse> getListWithAddresses(){
+        return individualCustomerService.findAllWithAddresses();
     }
 }

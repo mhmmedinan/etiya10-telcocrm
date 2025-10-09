@@ -20,8 +20,13 @@ public class Customer extends BaseEntity {
     @Column(name = "customer_number")
     private String customerNumber;
 
-    @OneToMany(mappedBy = "customer")
+
+    //navigation property
+
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private List<Address> addresses;
+
+    //Getter-Setter
 
     public int getId() {
         return id;
@@ -35,8 +40,12 @@ public class Customer extends BaseEntity {
         return customerNumber;
     }
 
-    public void setCustomerNumber(String customerNumber) {
-        this.customerNumber = customerNumber;
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     public Customer(int id, String customerNumber) {

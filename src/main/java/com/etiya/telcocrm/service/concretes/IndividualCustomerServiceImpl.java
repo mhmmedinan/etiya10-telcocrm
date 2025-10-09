@@ -38,4 +38,12 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
                 IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
         return responses;
     }
+
+    @Override
+    public List<GetListIndividualCustomerResponse> findAllWithAddresses() {
+        List<IndividualCustomer> individualCustomers = individualCustomerRepository.findAllWithAddresses();
+        List<GetListIndividualCustomerResponse> responses =
+                IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
+        return responses;
+    }
 }
