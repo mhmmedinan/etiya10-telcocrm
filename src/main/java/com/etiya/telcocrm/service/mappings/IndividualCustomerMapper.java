@@ -3,8 +3,11 @@ package com.etiya.telcocrm.service.mappings;
 import com.etiya.telcocrm.model.entities.IndividualCustomer;
 import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualCustomerRequest;
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
+import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 @Mapper()
 public interface IndividualCustomerMapper {
@@ -14,5 +17,7 @@ public interface IndividualCustomerMapper {
     IndividualCustomer individualCustomerFromCreateIndividualCustomerRequest(CreateIndividualCustomerRequest createIndividualCustomerRequest);
 
     CreatedIndividualCustomerResponse createdIndividualCustomerResponseFromIndividualCustomer(IndividualCustomer individualCustomer);
+
+    List<GetListIndividualCustomerResponse> getListIndividualCustomerResponsesFromIndividualCustomers(List<IndividualCustomer> individualCustomers);
 
 }
