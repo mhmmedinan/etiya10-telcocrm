@@ -19,7 +19,7 @@ public interface IndividualCustomerRepository extends JpaRepository<IndividualCu
     List<IndividualCustomer> findAllWithAddresses();*/
 
 
-    List<IndividualCustomer> findByLastName(String lastName);
+    List<IndividualCustomer> findByLastNameIgnoreCase(String lastName);
 
 }
 

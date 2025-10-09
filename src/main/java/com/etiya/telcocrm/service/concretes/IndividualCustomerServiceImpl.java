@@ -43,7 +43,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
     @Override
     public List<GetListIndividualCustomerResponse> getByLastName(String lastName) {
         List<IndividualCustomer> individualCustomers =
-                individualCustomerRepository.findByLastName(lastName);
+                individualCustomerRepository.findByLastNameIgnoreCase(lastName);
         List<GetListIndividualCustomerResponse> responses =
                 IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
         return responses;
