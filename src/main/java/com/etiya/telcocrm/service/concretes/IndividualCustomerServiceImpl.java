@@ -49,5 +49,14 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         return responses;
     }
 
+    @Override
+    public List<GetListIndividualCustomerResponse> getByFirstNameStartingWith(String prefix) {
+        List<IndividualCustomer> individualCustomers =
+                individualCustomerRepository.findByFirstNameStartingPrefix(prefix);
+        List<GetListIndividualCustomerResponse> responses =
+                IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
+        return responses;
+    }
+
 
 }

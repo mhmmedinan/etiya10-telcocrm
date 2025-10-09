@@ -39,6 +39,12 @@ public class IndividualCustomerController {
        return individualCustomerService.getByLastName(lastName);
     }
 
+    @GetMapping("getByFirstNameStartingWith/{prefix}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListIndividualCustomerResponse> getByFirstNameStartingWith(@PathVariable String prefix){
+        return individualCustomerService.getByFirstNameStartingWith(prefix);
+    }
+
    /* @GetMapping("getListWithAddresses")
     @ResponseStatus(HttpStatus.OK)
     public List<GetListIndividualCustomerResponse> getListWithAddresses(){

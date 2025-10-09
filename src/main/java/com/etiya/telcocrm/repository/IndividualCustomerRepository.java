@@ -3,10 +3,10 @@ package com.etiya.telcocrm.repository;
 import com.etiya.telcocrm.model.entities.IndividualCustomer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public interface IndividualCustomerRepository extends JpaRepository<IndividualCustomer,Integer> {
@@ -20,6 +20,11 @@ public interface IndividualCustomerRepository extends JpaRepository<IndividualCu
 
 
     List<IndividualCustomer> findByLastNameIgnoreCase(String lastName);
+
+    //JPQL
+    //Belirli bir isimle başlayan müşteriler
+    @Query("Select ic From IndividualCustomer ic Where ic.firstName LIKE :prefix%")
+    List<IndividualCustomer> findByFirstNameStartingPrefix(@Param("prefix") String prefix);
 
 }
 

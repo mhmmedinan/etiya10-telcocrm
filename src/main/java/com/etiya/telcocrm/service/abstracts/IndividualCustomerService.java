@@ -14,5 +14,6 @@ public interface IndividualCustomerService {
     CreatedIndividualCustomerResponse add(CreateIndividualCustomerRequest request);
     List<GetListIndividualCustomerResponse> getlist();
     List<GetListIndividualCustomerResponse> getByLastName(String lastName);
+    List<GetListIndividualCustomerResponse> getByFirstNameStartingWith(String prefix);
 
 }
