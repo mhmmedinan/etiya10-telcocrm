@@ -6,7 +6,7 @@ import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividua
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper()
 public interface IndividualCustomerMapper {
 
     IndividualCustomerMapper INSTANCE = Mappers.getMapper(IndividualCustomerMapper.class);
