@@ -4,6 +4,7 @@ import com.etiya.telcocrm.model.entities.IndividualCustomer;
 import com.etiya.telcocrm.service.abstracts.IndividualCustomerService;
 import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualCustomerRequest;
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
+import com.etiya.telcocrm.service.responses.individualcustomers.GetIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,12 @@ public class IndividualCustomerController {
     @ResponseStatus(HttpStatus.OK)
     public List<GetListIndividualCustomerResponse> getList(){
         return individualCustomerService.getlist();
+    }
+
+    @GetMapping("{lastName}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListIndividualCustomerResponse> getByLastName(@PathVariable String lastName){
+       return individualCustomerService.getByLastName(lastName);
     }
 
    /* @GetMapping("getListWithAddresses")

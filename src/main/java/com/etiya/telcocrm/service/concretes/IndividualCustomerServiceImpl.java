@@ -6,6 +6,7 @@ import com.etiya.telcocrm.service.abstracts.IndividualCustomerService;
 import com.etiya.telcocrm.service.mappings.IndividualCustomerMapper;
 import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualCustomerRequest;
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
+import com.etiya.telcocrm.service.responses.individualcustomers.GetIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
 import org.springframework.stereotype.Service;
 
@@ -39,11 +40,14 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         return responses;
     }
 
-   /* @Override
-    public List<GetListIndividualCustomerResponse> findAllWithAddresses() {
-        List<IndividualCustomer> individualCustomers = individualCustomerRepository.findAllWithAddresses();
+    @Override
+    public List<GetListIndividualCustomerResponse> getByLastName(String lastName) {
+        List<IndividualCustomer> individualCustomers =
+                individualCustomerRepository.findByLastName(lastName);
         List<GetListIndividualCustomerResponse> responses =
                 IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
         return responses;
-    }*/
+    }
+
+
 }
