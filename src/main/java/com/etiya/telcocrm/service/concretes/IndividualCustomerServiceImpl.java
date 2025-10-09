@@ -58,5 +58,14 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         return responses;
     }
 
+    @Override
+    public List<GetListIndividualCustomerResponse> getByCustomerNumberPattern(String pattern) {
+        List<IndividualCustomer> individualCustomers =
+                individualCustomerRepository.findByCustomerNumberPattern(pattern);
+        List<GetListIndividualCustomerResponse> responses =
+                IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
+        return responses;
+    }
+
 
 }

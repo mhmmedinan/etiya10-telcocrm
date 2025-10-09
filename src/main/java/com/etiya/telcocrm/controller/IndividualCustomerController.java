@@ -45,6 +45,13 @@ public class IndividualCustomerController {
         return individualCustomerService.getByFirstNameStartingWith(prefix);
     }
 
+    @GetMapping("getByCustomerNumberPattern/{pattern}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetListIndividualCustomerResponse> getByCustomerNumberPattern(@PathVariable String pattern){
+        return individualCustomerService.getByCustomerNumberPattern(pattern);
+    }
+
+
    /* @GetMapping("getListWithAddresses")
     @ResponseStatus(HttpStatus.OK)
     public List<GetListIndividualCustomerResponse> getListWithAddresses(){
