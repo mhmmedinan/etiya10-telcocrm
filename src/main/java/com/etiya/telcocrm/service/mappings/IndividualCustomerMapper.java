@@ -5,12 +5,11 @@ import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualC
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper()
+@Mapper(uses = {AddressMapper.class})
 public interface IndividualCustomerMapper {
 
     IndividualCustomerMapper INSTANCE = Mappers.getMapper(IndividualCustomerMapper.class);
@@ -19,7 +18,6 @@ public interface IndividualCustomerMapper {
 
     CreatedIndividualCustomerResponse createdIndividualCustomerResponseFromIndividualCustomer(IndividualCustomer individualCustomer);
 
-    //@Mapping(source = "street",target = "address.street")
     List<GetListIndividualCustomerResponse> getListIndividualCustomerResponsesFromIndividualCustomers(List<IndividualCustomer> individualCustomers);
 
 }

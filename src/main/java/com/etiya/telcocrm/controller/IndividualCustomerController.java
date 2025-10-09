@@ -32,9 +32,9 @@ public class IndividualCustomerController {
         return individualCustomerService.getlist();
     }
 
-    @GetMapping("getListWithAddresses")
+   /* @GetMapping("getListWithAddresses")
     @ResponseStatus(HttpStatus.OK)
     public List<GetListIndividualCustomerResponse> getListWithAddresses(){
         return individualCustomerService.findAllWithAddresses();
-    }
+    }*/
 }

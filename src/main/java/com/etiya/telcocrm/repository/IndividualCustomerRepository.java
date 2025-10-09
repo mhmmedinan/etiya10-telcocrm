@@ -11,9 +11,11 @@ import java.util.List;
 public interface IndividualCustomerRepository extends JpaRepository<IndividualCustomer,Integer> {
 
     //JPQL
-    @Query("Select ic From IndividualCustomer ic Left Join Fetch ic.addresses a Left Join Fetch a.district")
-    List<IndividualCustomer> findAllWithAddresses();
+    /*@Query("SELECT ic FROM IndividualCustomer ic " +
+            "LEFT JOIN FETCH ic.addresses a " +
+            "LEFT JOIN FETCH a.district d " +
+            "LEFT JOIN FETCH d.city")
+    List<IndividualCustomer> findAllWithAddresses();*/
 
-    IndividualCustomer findByFirstName(String firstName);
 }
 
