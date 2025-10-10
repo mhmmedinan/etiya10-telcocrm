@@ -17,4 +17,7 @@ public class IndividualCustomerBusinessRules {
         if(individualCustomerRepository.existsByNationalId(nationalId))
             throw new BusinessException("Individual customer exists");
     }
+
+
+
 }

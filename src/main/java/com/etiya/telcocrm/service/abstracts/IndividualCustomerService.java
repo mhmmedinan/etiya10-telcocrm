@@ -16,5 +16,6 @@ public interface IndividualCustomerService {
     List<GetListIndividualCustomerResponse> getByLastName(String lastName);
     List<GetListIndividualCustomerResponse> getByFirstNameStartingWith(String prefix);
     List<GetListIndividualCustomerResponse> getByCustomerNumberPattern(String pattern);
+    GetIndividualCustomerResponse getById(int id);
 
 }

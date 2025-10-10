@@ -8,6 +8,7 @@ import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualC
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
+import com.etiya.telcocrm.service.rules.CustomerBusinessRules;
 import com.etiya.telcocrm.service.rules.IndividualCustomerBusinessRules;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,12 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     private final IndividualCustomerRepository individualCustomerRepository;
     private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
+    private final CustomerBusinessRules customerBusinessRules; //kötü bir yöntem
 
-    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules){
-          this.individualCustomerRepository = individualCustomerRepository;
+    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules, CustomerBusinessRules customerBusinessRules){
+        this.individualCustomerRepository = individualCustomerRepository;
         this.individualCustomerBusinessRules = individualCustomerBusinessRules;
+        this.customerBusinessRules = customerBusinessRules;
     }
 
     @Override
@@ -70,7 +73,13 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
         return responses;
     }
 
-
+    @Override
+    public GetIndividualCustomerResponse getById(int id) {
+        customerBusinessRules.checkIfCustomerIdExists(id);
+        IndividualCustomer individualCustomer = individualCustomerRepository.findById(id).get();
+        GetIndividualCustomerResponse response = IndividualCustomerMapper.INSTANCE.getIndividualCustomerResponseFromIndividualCustomer(individualCustomer);
+        return response;
+    }
 
 
 }
