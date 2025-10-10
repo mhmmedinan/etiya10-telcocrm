@@ -51,6 +51,12 @@ public class IndividualCustomerController {
         return individualCustomerService.getByCustomerNumberPattern(pattern);
     }
 
+    @GetMapping("getById/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public GetIndividualCustomerResponse getById(@PathVariable int id){
+        return individualCustomerService.getById(id);
+    }
+
 
    /* @GetMapping("getListWithAddresses")
     @ResponseStatus(HttpStatus.OK)

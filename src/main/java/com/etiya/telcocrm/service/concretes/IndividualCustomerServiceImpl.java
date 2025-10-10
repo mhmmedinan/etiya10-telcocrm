@@ -18,7 +18,7 @@ import java.util.List;
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
 
     private final IndividualCustomerRepository individualCustomerRepository;
-    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;/
+    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
 
     public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules){
         this.individualCustomerRepository = individualCustomerRepository;
