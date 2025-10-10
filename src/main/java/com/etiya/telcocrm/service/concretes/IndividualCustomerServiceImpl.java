@@ -8,6 +8,7 @@ import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualC
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
+import com.etiya.telcocrm.service.rules.IndividualCustomerBusinessRules;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,14 +17,16 @@ import java.util.List;
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
 
     private final IndividualCustomerRepository individualCustomerRepository;
+    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
 
-    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository){
+    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules){
           this.individualCustomerRepository = individualCustomerRepository;
+        this.individualCustomerBusinessRules = individualCustomerBusinessRules;
     }
 
     @Override
     public CreatedIndividualCustomerResponse add(CreateIndividualCustomerRequest request) {
-
+        individualCustomerBusinessRules.checkIfIndividualCustomerExistsByIdentityNumber(request.getNationalId());
         IndividualCustomer individualCustomer = IndividualCustomerMapper.INSTANCE.individualCustomerFromCreateIndividualCustomerRequest(request);
         IndividualCustomer createdIndividualCustomer = individualCustomerRepository.save(individualCustomer);
         CreatedIndividualCustomerResponse response =
@@ -66,6 +69,8 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
                 IndividualCustomerMapper.INSTANCE.getListIndividualCustomerResponsesFromIndividualCustomers(individualCustomers);
         return responses;
     }
+
+
 
 
 }

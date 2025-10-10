@@ -31,5 +31,7 @@ public interface IndividualCustomerRepository extends JpaRepository<IndividualCu
     @Query(value = "Select * from individual_customers ic inner join customers c on ic.customer_id=c.id Where c.customer_number LIKE :pattern%",nativeQuery = true)
     List<IndividualCustomer> findByCustomerNumberPattern(@Param("pattern") String pattern);
 
+    boolean existsByNationalId(String nationalId);
+
 }
 
