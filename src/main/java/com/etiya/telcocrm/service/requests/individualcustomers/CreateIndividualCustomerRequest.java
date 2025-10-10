@@ -1,17 +1,24 @@
 package com.etiya.telcocrm.service.requests.individualcustomers;
 
-import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
 public class CreateIndividualCustomerRequest {
 
+    @NotBlank(message = "Firstname is required")
+    @Size(min = 2,max = 50,message = "FirstName must be between 2 and 50 characters")
     private String firstName;
 
     private String lastName;
 
     private String middleName;
 
+    @NotBlank(message = "Identity number is required")
+    @Size(min = 11,max = 11,message = "Identity number must be 11 characters")
+    @Pattern(regexp = "^[0-9]+$",message = "Identity number must contain only numbers")
     private String nationalId;
 
     private LocalDateTime dateOfBirth;

@@ -6,6 +6,7 @@ import com.etiya.telcocrm.service.requests.individualcustomers.CreateIndividualC
 import com.etiya.telcocrm.service.responses.individualcustomers.CreatedIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetIndividualCustomerResponse;
 import com.etiya.telcocrm.service.responses.individualcustomers.GetListIndividualCustomerResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class IndividualCustomerController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public CreatedIndividualCustomerResponse add(@RequestBody CreateIndividualCustomerRequest request){
+    public CreatedIndividualCustomerResponse add(@Valid @RequestBody CreateIndividualCustomerRequest request){
          return individualCustomerService.add(request);
     }
 
