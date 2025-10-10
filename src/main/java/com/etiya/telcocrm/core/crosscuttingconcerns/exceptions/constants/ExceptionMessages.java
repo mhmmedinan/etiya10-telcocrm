@@ -8,5 +8,4 @@ public class ExceptionMessages {
 
     public static final String TYPE_BUSINESS = "https://example.com/probs/business";
 
-
 }
