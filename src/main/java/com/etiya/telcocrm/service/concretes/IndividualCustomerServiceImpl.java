@@ -18,13 +18,11 @@ import java.util.List;
 public class IndividualCustomerServiceImpl implements IndividualCustomerService {
 
     private final IndividualCustomerRepository individualCustomerRepository;
-    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;
-    private final CustomerBusinessRules customerBusinessRules; //kötü bir yöntem
+    private final IndividualCustomerBusinessRules individualCustomerBusinessRules;/
 
-    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules, CustomerBusinessRules customerBusinessRules){
+    public IndividualCustomerServiceImpl(IndividualCustomerRepository individualCustomerRepository, IndividualCustomerBusinessRules individualCustomerBusinessRules){
         this.individualCustomerRepository = individualCustomerRepository;
         this.individualCustomerBusinessRules = individualCustomerBusinessRules;
-        this.customerBusinessRules = customerBusinessRules;
     }
 
     @Override
@@ -75,7 +73,7 @@ public class IndividualCustomerServiceImpl implements IndividualCustomerService 
 
     @Override
     public GetIndividualCustomerResponse getById(int id) {
-        customerBusinessRules.checkIfCustomerIdExists(id);
+        individualCustomerBusinessRules.checkIfCustomerIdExists(id);
         IndividualCustomer individualCustomer = individualCustomerRepository.findById(id).get();
         GetIndividualCustomerResponse response = IndividualCustomerMapper.INSTANCE.getIndividualCustomerResponseFromIndividualCustomer(individualCustomer);
         return response;

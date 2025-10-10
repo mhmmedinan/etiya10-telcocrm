@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public interface IndividualCustomerRepository extends JpaRepository<IndividualCustomer,Integer> {
+public interface IndividualCustomerRepository extends CustomerRepository<IndividualCustomer> {
 
     //JPQL
     /*@Query("SELECT ic FROM IndividualCustomer ic " +
