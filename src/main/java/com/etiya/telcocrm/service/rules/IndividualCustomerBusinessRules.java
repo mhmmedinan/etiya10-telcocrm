@@ -1,5 +1,6 @@
 package com.etiya.telcocrm.service.rules;
 
+import com.etiya.telcocrm.core.crosscuttingconcerns.exceptions.types.BusinessException;
 import com.etiya.telcocrm.repository.IndividualCustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,6 @@ public class IndividualCustomerBusinessRules {
 
     public void checkIfIndividualCustomerExistsByIdentityNumber(String nationalId){
         if(individualCustomerRepository.existsByNationalId(nationalId))
-            throw new RuntimeException("Individual customer exists");
+            throw new BusinessException("Individual customer exists");
     }
 }
